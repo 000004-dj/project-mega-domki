@@ -1,11 +1,11 @@
 <template>
   <div class="card">
     <div class="card__button_block">
-      <universal-button
+      <button
           @click="$emit('remove', card)"
-          class="card__button_block__btn-remove">
+          class="card__button_block__btn-remove btn">
         X
-      </universal-button>
+      </button>
     </div>
 
     <div class="card__info">
@@ -17,11 +17,11 @@
       <div>{{ setVisibleCurrency === 0 ? card.prise : setVisibleCurrency }} {{ currency }}</div>
     </div>
 
-    <universal-button
+    <button
         @click="dialogVisible = true"
-        class="card__button_block__btn-more">
+        class="card__button_block__btn-more btn">
       Więcej
-    </universal-button>
+    </button>
 
     <my-dialog v-model:show="dialogVisible">
       <card :card="card"></card>

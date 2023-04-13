@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <div class="nav__btns">
+    <div class="nav__links">
       <universal-select
           style="width: 75px; font-size: 16px"
           :title="'PLN'"
@@ -8,16 +8,17 @@
           @update:model-value="setCurrencyFunc"
           :options="currencyOptions"
       ></universal-select>
-      <universal-button @click="$router.push('/')">Główna</universal-button>
-      <universal-button @click="changeStateToTree">Na Drzewie</universal-button>
-      <universal-button @click="changeStateToLand">Na Ziemie</universal-button>
-      <universal-button @click="changeStateAll">Wszystko</universal-button>
+      <router-link to="/" active-class="active">Główna</router-link>
+      <router-link to="tree" @click="changeStateToTree" active-class="active">Na Drzewie</router-link>
+      <router-link to="land" @click="changeStateToLand" active-class="active">Na Ziemie</router-link>
+      <router-link to="all" @click="changeStateAll" active-class="active">Wszystko</router-link>
     </div>
   </div>
 </template>
 
 <script>
 import {mapActions, mapMutations, mapState} from "vuex";
+
 
 export default {
   name: "main-navbar",
@@ -55,11 +56,15 @@ export default {
     changeStateAll() {
       this.$router.push('all')
       this.setChangedState('all')
+
     },
     setCurrencyFunc(curr) {
       this.getCurrencyCoefficient(curr)
       this.setCurrency(curr)
     },
+    isActive(){
+      return true
+    }
 
   }
 }
@@ -76,8 +81,23 @@ export default {
   background: rgba(0, 255, 255, 0.75);
 }
 
-
-.nav__btns {
+.nav__links {
   margin: auto;
 }
+
+.nav__links a {
+  margin-left: 10px;
+  text-transform: uppercase;
+  color: black;
+  text-decoration: none;
+}
+
+.nav__links a:hover {
+  color: white;
+}
+
+.active{
+  color: white !important;
+}
+
 </style>

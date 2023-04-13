@@ -37,8 +37,5 @@ export default {
 </script>
 
 <style scoped>
-.select {
-  height: 40px;
-  margin: 0 10px;
-}
+
 </style>

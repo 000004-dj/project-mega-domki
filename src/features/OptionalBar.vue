@@ -1,6 +1,6 @@
 <template>
   <div class="app__btns">
-    <universal-button @click="$emit('showDialog',true)">Dodaj nowy towar</universal-button>
+    <button class="btn" @click="$emit('showDialog',true)">Dodaj nowy towar</button>
     <universal-input
         v-focus
         :model-value="searchQuery"
@@ -14,10 +14,10 @@
         :model-value="selectedSort"
         @update:model-value="setSelectedSort"
         :options="sortOptions"></universal-select>
-    <universal-button
+    <button class="btn"
         @click="setSortUp(!sortUp)"
     >{{ sortUp ? "Malejąco" : "Rosnąco" }}
-    </universal-button>
+    </button>
   </div>
 </template>
 

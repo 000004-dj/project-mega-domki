@@ -4,7 +4,7 @@
       <card-item
           v-for="card in cards"
           :card="card"
-          v-bind:key="card.id"
+          :key="card.id"
           @remove="removeCard"/>
     </transition-group>
 

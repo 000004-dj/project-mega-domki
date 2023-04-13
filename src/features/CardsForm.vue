@@ -6,34 +6,33 @@
     <universal-input
         v-focus
         v-model="card.title"
-        v-bind:class="{error: v$.card.title.$error, input: true}"
+        :class="{error: v$.card.title.$error, input: true}"
         type="text"
         placeholder="Post name"/>
     <span v-if="v$.card.body.$error">{{ v$.card.body.$errors[0].$message }}</span>
     <universal-input
         v-model="card.body"
-        v-bind:class="{error: v$.card.body.$error, input: true}"
+        :class="{error: v$.card.body.$error, input: true}"
         type="text"
         placeholder="Description"/>
     <span v-if="v$.card.prise.$error">{{ v$.card.prise.$errors[0].$message }}</span>
     <universal-input
         v-model="card.prise"
-        v-bind:class="{error: v$.card.prise.$error, input: true}"
+        :class="{error: v$.card.prise.$error, input: true}"
         type="text"
         placeholder="Prise"/>
     <span v-if="v$.card.image.$error">{{ v$.card.image.$errors[0].$message }}</span>
     <universal-input
-        v-bind:class="{error: v$.card.image.$error, input: true}"
+        :class="{error: v$.card.image.$error, input: true}"
         v-model="card.image"
         type="text"
         placeholder="Image URL"
     ></universal-input>
 
-    <universal-button
+    <button class="btn"
         @submit="addCard"
         @click="addCard"
-        class="form__btn"
-    >Dodaj</universal-button>
+    >Dodaj</button>
 
   </form>
 </template>

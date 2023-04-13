@@ -28,10 +28,9 @@ const routes = [
     },
 ]
 
-
 const router = createRouter({
     routes,
-    history: createWebHistory("https://google.com")
+    history: createWebHistory("")
 })
 
 export default router
