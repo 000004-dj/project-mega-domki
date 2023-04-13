@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import components from "./common/UI"
 import router from "./router/router";
 import directives from "././directives";
 import store from "././store";
@@ -8,8 +7,11 @@ import store from "././store";
 
 const app = createApp(App)
 
-components.forEach(component => {
-    app.component(component.name, component)
+const components = import.meta.globEager('./common/UI/*.vue')
+
+Object.entries(components).forEach(([path, definition]) => {
+    const componentName = path.split('/').pop().replace(/\.\w+$/, '')
+    app.component(componentName, definition.default)
 })
 
 directives.forEach(directive => {
